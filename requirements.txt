@@ -1,0 +1,14 @@
+discord.py 
+whois 
+colorama 
+inputimeout 
+datetime 
+requests 
+asyncio 
+language 
+bs4 
+pymongo 
+selenium 
+pyPrivnote 
+gtts 
+tqdm 
