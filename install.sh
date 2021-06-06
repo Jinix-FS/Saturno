@@ -1,0 +1,14 @@
+pip3 install discord.py
+pip3 install whois 
+pip3 install colorama 
+pip3 install inputimeout 
+pip3 install datetime 
+pip3 install requests 
+pip3 install asyncio 
+pip3 install language 
+pip3 install bs4 
+pip3 install pymongo 
+pip3 install selenium 
+pip3 install pyPrivnote 
+pip3 install gtts 
+pip3 install tqdm 
